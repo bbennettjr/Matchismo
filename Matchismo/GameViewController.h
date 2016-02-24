@@ -13,6 +13,7 @@
 #import "GameResult.h"
 #import "Grid.h"
 
+    //comments to test Git ;)
 @interface GameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *flipCards;
