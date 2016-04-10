@@ -44,6 +44,7 @@
         }
         [self.chosenCards removeAllObjects];
     }
+    _match = match;
 }
 -(BOOL)match{
     return(!_match ? _match = NO : _match);
