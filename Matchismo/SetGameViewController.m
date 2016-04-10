@@ -61,6 +61,7 @@
         //code to create the setcard views
         SetCardView *cardView;
         SetCard *card;
+            //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
         int index = 0;
 
         //only do if the inputs are valid

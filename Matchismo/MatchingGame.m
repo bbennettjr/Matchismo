@@ -40,7 +40,7 @@
     if (match) {
         for (Card *card in self.chosenCards) {
             card.isMatched = YES;
-            card.isChosen = NO;
+            card.isChosen = YES;
         }
         [self.chosenCards removeAllObjects];
     } else if ([self.chosenCards count] == self.numberOfMatchingCards) { //Code for match = NO and removing all cards
