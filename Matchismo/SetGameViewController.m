@@ -111,6 +111,7 @@
 
 //when a match occurs in game, animate the cards
 -(void)animateMatch{
+        //use a weakSelf version of our VC for the animation block below
     __weak SetGameViewController *weakSelf = self;
     for (SetCardView *cardView in self.cardViews) {
         if (cardView.selected) {
