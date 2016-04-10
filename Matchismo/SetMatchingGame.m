@@ -25,7 +25,7 @@
         if ([self.chosenCards count] == self.numberOfMatchingCards-1) { //have we chosen two other cards
             int initialMatchScore = [card match:self.chosenCards]; //initial match scoring
             [self.chosenCards addObject:card];
-            
+
                 //Call descriptionOfFlip here to take advantage of cards while they are in chosenCards (assuming match occurs)
             [self descriptionOfFlip];
 
@@ -36,7 +36,10 @@
             }
 
                 //No Match.  Subtract the penalty.
-            if (!initialMatchScore) { self.score -= self.mismatchPenalty; self.match = NO; }
+            if (!initialMatchScore) {
+                self.score -= self.mismatchPenalty;
+                self.match = NO;
+            }
 
         } else {
             if (!card.isMatched) {
