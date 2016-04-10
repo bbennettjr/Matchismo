@@ -121,7 +121,7 @@
             [cardsToRemove addObject:cardView];
         }
     }
-    [self purgeCardViews:cardsToRemove];
+        //[self purgeCardViews:cardsToRemove];
     self.cardGame.match = NO;
 }
 
