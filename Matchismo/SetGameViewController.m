@@ -111,25 +111,19 @@
 
 //when a match occurs in game, animate the cards
 -(void)animateMatch{
-    NSMutableArray *cardsToRemove = [[NSMutableArray alloc]init];
+    __weak SetGameViewController *weakSelf = self;
     for (SetCardView *cardView in self.cardViews) {
         if (cardView.selected) {
             [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
                 //not working
                 cardView.transform = CGAffineTransformMakeTranslation(self.view.bounds.origin.x, self.view.bounds.origin.y);
+                    //use a weak version of self to remove the cardView object after the transformation is complete
+                [weakSelf.cardViews removeObject:cardView];
+                [cardView removeFromSuperview];
             } completion:nil];
-            [cardsToRemove addObject:cardView];
         }
     }
-        [self purgeCardViews:cardsToRemove];
     self.cardGame.match = NO;
-}
-
--(void)purgeCardViews:(NSMutableArray *)viewsToRemove{
-    for (id obj in viewsToRemove) {
-        [self.cardViews removeObject:obj];
-        [obj removeFromSuperview];
-    }
 }
 
 - (NSAttributedString *)updateAttributedString:(NSAttributedString *)attributedString withAttributesOfCard:(SetCard *)card{
