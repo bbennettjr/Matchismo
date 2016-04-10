@@ -43,7 +43,7 @@
             card.isChosen = NO;
         }
         [self.chosenCards removeAllObjects];
-    } else if ([self.chosenCards count] == 3) { //Code for match = NO and removing all cards
+    } else if ([self.chosenCards count] == self.numberOfMatchingCards) { //Code for match = NO and removing all cards
         for (Card *card in self.chosenCards) {
             card.isMatched = NO;
             card.isChosen = NO;
