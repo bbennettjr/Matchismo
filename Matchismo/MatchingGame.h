@@ -13,7 +13,7 @@
 @property (nonatomic) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards; //of cards
 @property (nonatomic, strong) NSMutableArray *chosenCards;
-@property (nonatomic) NSString *status;
+@property (nonatomic) NSString *descr;
 @property (nonatomic) NSInteger numberOfMatchingCards;
 @property (nonatomic, getter=match) BOOL match;
 

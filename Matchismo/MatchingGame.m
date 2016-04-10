@@ -31,8 +31,8 @@
 -(void)setScore:(NSInteger)score{
     _score = score;
 }
--(NSString *)status{
-    return (!_status) ? _status = [[NSString alloc]initWithFormat:@"Find a Set!"] : _status;
+-(NSString *)descr{
+    return (!_descr) ? _descr = [[NSString alloc]initWithFormat:@"Find a Set!"] : _descr;
 }
 @synthesize match = _match;
 -(void)setMatch:(BOOL)match{

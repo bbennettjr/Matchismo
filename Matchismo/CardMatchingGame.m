@@ -22,9 +22,9 @@
         [self.chosenCards removeLastObject];
 
         if ([self.chosenCards count]) {
-            self.status = [NSString stringWithFormat:@"Chosen cards %@", [self.chosenCards componentsJoinedByString:@", "]];
+            self.descr = [NSString stringWithFormat:@"Chosen cards %@", [self.chosenCards componentsJoinedByString:@", "]];
         } else {
-            self.status =@"Pick a card, any card";
+            self.descr =@"Pick a card, any card";
         }
 
     } else if (!card.isMatched) {
@@ -43,7 +43,7 @@
                 }
                 card.isMatched = YES;
                 self.match = YES;
-                self.status = [NSString stringWithFormat:@"Matched %@ with %@ for %d points!", card.contents, dummyString, matches];
+                self.descr = [NSString stringWithFormat:@"Matched %@ with %@ for %d points!", card.contents, dummyString, matches];
                 [self.chosenCards removeAllObjects];
             } else {
                 self.score -= self.mismatchPenalty;
@@ -52,7 +52,7 @@
                     newCard.isChosen = NO;
                 }
                 self.match = NO;
-                self.status = [NSString stringWithFormat:@"No match! Lose %d points.", self.mismatchPenalty];
+                self.descr = [NSString stringWithFormat:@"No match! Lose %d points.", self.mismatchPenalty];
                 [self.chosenCards removeAllObjects];
                 [self.chosenCards addObject:card];
             }
@@ -63,9 +63,9 @@
                 for (Card *newCard in self.chosenCards) {
                     dummyString = [dummyString stringByAppendingString:newCard.contents];
                 }
-                self.status = [NSString stringWithFormat:@"Chosen cards %@", dummyString];
+                self.descr = [NSString stringWithFormat:@"Chosen cards %@", dummyString];
             }
-            else {self.status = [NSString stringWithFormat:@"Chosen card %@", card.contents];}
+            else {self.descr = [NSString stringWithFormat:@"Chosen card %@", card.contents];}
         }
         self.score -= self.costToChoose;
         card.isChosen = YES;

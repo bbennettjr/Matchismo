@@ -54,21 +54,21 @@
 }
 
 -(void)descriptionOfFlip{
-    self.status = [NSString stringWithFormat:@""];
+    self.descr = [NSString stringWithFormat:@""];
     if ([self.chosenCards count]) {
         for (Card *card in self.chosenCards) {
             if ([card isKindOfClass:[SetCard class]]) {
                 SetCard *newCard = (SetCard *)card;
                 //create a string of every card
-                if (![self.status length]) {
-                    self.status = [NSString stringWithFormat:@"%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
+                if (![self.descr length]) {
+                    self.descr = [NSString stringWithFormat:@"%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
                 } else {
-                    self.status = [self.status stringByAppendingFormat:@",%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
+                    self.descr = [self.descr stringByAppendingFormat:@",%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
                 }
             }
         }
     } else {
-        //no cards chosen, status says choose a set
+        //no cards chosen, descr says choose a set
     }
 }
 @end
