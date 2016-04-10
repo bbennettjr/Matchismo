@@ -25,6 +25,9 @@
         if ([self.chosenCards count] == self.numberOfMatchingCards-1) { //have we chosen two other cards
             int initialMatchScore = [card match:self.chosenCards]; //initial match scoring
             [self.chosenCards addObject:card];
+            
+                //Call descriptionOfFlip here to take advantage of cards while they are in chosenCards (assuming match occurs)
+            [self descriptionOfFlip];
 
                 //Match! Now add bonuses, set all card's isMatched = YES and self.match = YES
             if (initialMatchScore) {
@@ -41,9 +44,9 @@
                 if (card.isChosen) { [self.chosenCards removeObject:card]; }
                 card.isChosen = !card.isChosen;
                 self.match = NO;
+                [self descriptionOfFlip];
             }
         }
-        [self descriptionOfFlip];
         self.score -= self.costToChoose;
     }
 }
