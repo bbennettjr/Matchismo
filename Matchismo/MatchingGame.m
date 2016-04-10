@@ -34,6 +34,12 @@
 -(NSString *)status{
     return (!_status) ? _status = [[NSString alloc]initWithFormat:@"Find a Set!"] : _status;
 }
+@synthesize match = _match;
+-(void)setMatch:(BOOL)match{
+    if (match) {
+        [self.chosenCards removeAllObjects];
+    }
+}
 -(BOOL)match{
     return(!_match ? _match = NO : _match);
 }

@@ -25,16 +25,22 @@
         if ([self.chosenCards count] == self.numberOfMatchingCards-1) { //have we chosen two other cards
             int initialMatchScore = [card match:self.chosenCards]; //initial match scoring
             [self.chosenCards addObject:card];
-            //combine two commands in the same line
-            if (initialMatchScore) { self.score += self.matchBonus * initialMatchScore; self.match = YES; }
+
+                //Match! Now add bonuses, set all card's isMatched = YES and self.match = YES
+            if (initialMatchScore) {
+                self.score += self.matchBonus * initialMatchScore;
+                self.match = YES;
+            }
+
+                //No Match.  Subtract the penalty.
             if (!initialMatchScore) { self.score -= self.mismatchPenalty; self.match = NO; }
-            //fast enum through the array to show cards as matched or not
+
+                //fast enum through the array to show cards as matched or not
             for (Card *newCard in self.chosenCards) {
                 newCard.isMatched = initialMatchScore ? YES : NO;
                 newCard.isChosen = initialMatchScore ? YES : NO;
             }
             [self descriptionOfFlip];
-            [self.chosenCards removeAllObjects];
         } else {
             if (!card.isMatched) {
                 if (!card.isChosen) { [self.chosenCards addObject:card]; }
