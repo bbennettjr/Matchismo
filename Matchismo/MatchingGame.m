@@ -36,7 +36,12 @@
 }
 @synthesize match = _match;
 -(void)setMatch:(BOOL)match{
+        //If a match occurs, set all cards in the chosenCards array to isMatched = YES and remove them from the array.
     if (match) {
+        for (Card *card in self.chosenCards) {
+            card.isMatched = YES;
+            card.isChosen = NO;
+        }
         [self.chosenCards removeAllObjects];
     }
 }
