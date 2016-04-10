@@ -55,6 +55,11 @@
 -(BOOL)match{
     return(!_match ? _match = NO : _match);
 }
+    //Status getter
+@synthesize status = _status;
+-(NSDictionary *)status{
+    return !_status ? _status = [NSDictionary dictionary] : _status;
+}
 -(Settings *)settings{
     return !_settings ? _settings = [Settings currentSettings] : _settings;
 }
@@ -108,5 +113,12 @@
 
 -(void)descriptionOfFlip{
 //tell about the flip
+}
+
+#pragma mark - Class Methods
+    //Status values possible for each game.  Subclass if necessary
++(NSArray *)statusValues{
+    NSArray *status = @[@"Mid-Turn", @"Match"];
+    return status;
 }
 @end

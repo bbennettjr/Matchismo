@@ -16,6 +16,8 @@
 @property (nonatomic) NSString *descr;
 @property (nonatomic) NSInteger numberOfMatchingCards;
 @property (nonatomic, getter=match) BOOL match;
+    //Status is a dictionary containing the status of each game.  Methods to get an array of the keys need to be subclassed. readonly so the listener cannot change
+@property (nonatomic, strong, readonly) NSDictionary *status;
 
 //previously constants now properties to change in subclasses
 @property (nonatomic) NSInteger matchBonus;
@@ -28,5 +30,9 @@
 -(Card *)cardAtIndex:(NSUInteger)index;
 -(void)chooseCardAtIndex:(NSUInteger)index;
 -(void)descriptionOfFlip;
+
+    //Class methods
+    //Subclass this method to get the key values for the dictionary of status values
++(NSArray *)statusValues;
 
 @end
