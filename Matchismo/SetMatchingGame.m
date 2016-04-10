@@ -35,21 +35,15 @@
                 //No Match.  Subtract the penalty.
             if (!initialMatchScore) { self.score -= self.mismatchPenalty; self.match = NO; }
 
-                //fast enum through the array to show cards as matched or not
-            for (Card *newCard in self.chosenCards) {
-                newCard.isMatched = initialMatchScore ? YES : NO;
-                newCard.isChosen = initialMatchScore ? YES : NO;
-            }
-            [self descriptionOfFlip];
         } else {
             if (!card.isMatched) {
                 if (!card.isChosen) { [self.chosenCards addObject:card]; }
                 if (card.isChosen) { [self.chosenCards removeObject:card]; }
                 card.isChosen = !card.isChosen;
                 self.match = NO;
-                [self descriptionOfFlip];
             }
         }
+        [self descriptionOfFlip];
         self.score -= self.costToChoose;
     }
 }
