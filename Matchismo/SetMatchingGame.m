@@ -46,7 +46,6 @@
                 if (!card.isChosen) { [self.chosenCards addObject:card]; }
                 if (card.isChosen) { [self.chosenCards removeObject:card]; }
                 card.isChosen = !card.isChosen;
-                self.match = NO;
                 [self descriptionOfFlip];
             }
         }
