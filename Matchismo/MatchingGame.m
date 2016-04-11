@@ -17,6 +17,11 @@
 @end
 
 @implementation MatchingGame
+static NSString *const NO_ACTION = @"NO ACITON";
+static NSString *const MID_TURN = @"MID TURN";
+static NSString *const MATCH = @"MATCH";
+
+
 #pragma mark - Lazy Instantiation
 -(NSMutableArray *)chosenCards{
     return (!_chosenCards) ? _chosenCards = [[NSMutableArray alloc]init] : _chosenCards; //fast enumeration
@@ -42,6 +47,7 @@
         for (Card *card in self.chosenCards) {
             card.isMatched = YES;
             card.isChosen = YES;
+            self.status = MATCH;
         }
         [self.chosenCards removeAllObjects];
     } else if ([self.chosenCards count] == self.numberOfMatchingCards) { //Code for match = NO and removing all cards
