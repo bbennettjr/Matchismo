@@ -12,7 +12,6 @@
 #import "Settings.h"
 
 @interface MatchingGame ()
-@property (nonatomic, strong, readwrite) NSString *status;
 @property (nonatomic, strong) Settings *settings;
 @end
 
@@ -20,7 +19,6 @@
 static NSString *const NO_ACTION = @"NO ACITON";
 static NSString *const MID_TURN = @"MID TURN";
 static NSString *const MATCH = @"MATCH";
-
 
 #pragma mark - Lazy Instantiation
 -(NSMutableArray *)chosenCards{
@@ -54,6 +52,7 @@ static NSString *const MATCH = @"MATCH";
         for (Card *card in self.chosenCards) {
             card.isMatched = NO;
             card.isChosen = NO;
+            self.status = NO_ACTION;
         }
         [self.chosenCards removeAllObjects];
     }
@@ -128,7 +127,7 @@ static NSString *const MATCH = @"MATCH";
 #pragma mark - Class Methods
     //Status values possible for each game.  Subclass if necessary
 +(NSArray *)statusValues{
-    NSArray *status = @[@"No Action", @"Mid-Turn", @"Match"];
+    NSArray *status = @[NO_ACTION, MID_TURN, MATCH];
     return status;
 }
 @end

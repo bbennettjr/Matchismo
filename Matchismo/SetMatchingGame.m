@@ -14,6 +14,10 @@
 @end
 
 @implementation SetMatchingGame
+static NSString *const NO_ACTION = @"NO ACITON";
+static NSString *const MID_TURN = @"MID TURN";
+static NSString *const MATCH = @"MATCH";
+
 -(instancetype)initWithDeck:(Deck *)deck{
     return [super initWithDeck:deck];
 }
@@ -45,6 +49,8 @@
             if (!card.isMatched) {
                 if (!card.isChosen) { [self.chosenCards addObject:card]; }
                 if (card.isChosen) { [self.chosenCards removeObject:card]; }
+                    //change status to mid turn if any move was chosen
+                if (![self.status isEqualToString:MID_TURN]) { self.status = MID_TURN; }
                 card.isChosen = !card.isChosen;
                 [self descriptionOfFlip];
             }
