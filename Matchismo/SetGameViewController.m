@@ -16,6 +16,9 @@
 
 @implementation SetGameViewController
 #pragma mark - Definitions
+static NSString *const NO_ACTION = @"NO ACITON";
+static NSString *const MID_TURN = @"MID TURN";
+static NSString *const MATCH = @"MATCH";
 #define MAX_CARD_WIDTH 1000.0
 #define MAX_CARD_HEIGHT 1000.0
 #define MIN_CARD_WIDTH 180.0
@@ -105,9 +108,10 @@
     [super updateUI];
     //get the card for correct cardview object
 
-    if (self.cardGame.match) {
-        [self animateMatch];
-    }
+        //parse out actions depending on current game status
+
+    if ([self.cardGame.status isEqualToString:MATCH]) { [self animateMatch]; }
+    if ([self.cardGame.status isEqualToString:NO_ACTION]) { [self resetCards]; }
 }
 
 //when a match occurs in game, animate the cards
@@ -126,5 +130,10 @@
         }
     }
     self.cardGame.match = NO;
+}
+
+    //Reset cards calls all cardviews in the window and resets them to the default non-selected position
+-(void)resetCards{
+        //this code will call a method within SetCardView to toggle selected state
 }
 @end
