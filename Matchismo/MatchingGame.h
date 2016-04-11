@@ -17,7 +17,7 @@
 @property (nonatomic) NSInteger numberOfMatchingCards;
 @property (nonatomic, getter=match) BOOL match;
     //Status is a dictionary containing the status of each game.  Methods to get an array of the keys need to be subclassed. readonly so the listener cannot change
-@property (nonatomic, strong, readonly) NSDictionary *status;
+@property (nonatomic, strong, readonly) NSString *status;
 
 //previously constants now properties to change in subclasses
 @property (nonatomic) NSInteger matchBonus;

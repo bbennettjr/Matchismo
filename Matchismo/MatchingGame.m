@@ -12,6 +12,7 @@
 #import "Settings.h"
 
 @interface MatchingGame ()
+@property (nonatomic, strong, readwrite) NSString *status;
 @property (nonatomic, strong) Settings *settings;
 @end
 
@@ -55,10 +56,13 @@
 -(BOOL)match{
     return(!_match ? _match = NO : _match);
 }
-    //Status getter
+    //Status getter and setter
 @synthesize status = _status;
--(NSDictionary *)status{
-    return !_status ? _status = [NSDictionary dictionary] : _status;
+-(NSString *)status{
+    if (!_status) {
+        _status = [NSString stringWithFormat:@""];
+    }
+    return _status;
 }
 -(Settings *)settings{
     return !_settings ? _settings = [Settings currentSettings] : _settings;
@@ -118,7 +122,7 @@
 #pragma mark - Class Methods
     //Status values possible for each game.  Subclass if necessary
 +(NSArray *)statusValues{
-    NSArray *status = @[@"Mid-Turn", @"Match"];
+    NSArray *status = @[@"No Action", @"Mid-Turn", @"Match"];
     return status;
 }
 @end
