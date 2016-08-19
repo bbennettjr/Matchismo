@@ -128,7 +128,7 @@ static NSString *const MATCH = @"MATCH";
                 //cardView.transform = CGAffineTransformMakeTranslation(0, -1000);
                     //use a weak version of self to remove the cardView object after the transformation is complete
                     //[weakSelf.cardViews removeObject:cardView];
-            
+                [cardView removeMatchedCard:self.view.window.bounds];
                     //Add cardView to the clean up array to later remove these from self.cardViews
                 [cardViewCleanUp addObject:cardView];
                     //[cardView removeFromSuperview];
