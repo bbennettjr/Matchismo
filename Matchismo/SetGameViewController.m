@@ -116,16 +116,22 @@ static NSString *const MATCH = @"MATCH";
 
 //when a match occurs in game, animate the cards
 -(void)animateMatch{
+        //Array to clean up the cards as they are removed from the game.  Do not touch the self.cardViews array while its being enumerated
+    NSMutableArray *cardViewCleanUp = [[NSMutableArray alloc] init];
         //use a weakSelf version of our VC for the animation block below
-    __weak SetGameViewController *weakSelf = self;
+        //__weak SetGameViewController *weakSelf = self;
     for (SetCardView *cardView in self.cardViews) {
         if (cardView.selected) {
             [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
                 //not working
-                cardView.transform = CGAffineTransformMakeTranslation(self.view.bounds.origin.x, self.view.bounds.origin.y);
+                //cardView.transform = CGAffineTransformMakeTranslation(self.view.bounds.origin.x, self.view.bounds.origin.y);
+                //cardView.transform = CGAffineTransformMakeTranslation(0, -1000);
                     //use a weak version of self to remove the cardView object after the transformation is complete
-                [weakSelf.cardViews removeObject:cardView];
-                [cardView removeFromSuperview];
+                    //[weakSelf.cardViews removeObject:cardView];
+            
+                    //Add cardView to the clean up array to later remove these from self.cardViews
+                [cardViewCleanUp addObject:cardView];
+                    //[cardView removeFromSuperview];
             } completion:nil];
         }
     }

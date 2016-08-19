@@ -255,4 +255,10 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
         self.selected = !self.selected;
     }
 }
+
+    //Remove the cards from the view by translating within the context reference
+-(void)removeMatchedCard:(CGRect)windowBounds{
+    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), -1000, -1000);
+}
+
 @end
