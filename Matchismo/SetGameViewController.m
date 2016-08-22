@@ -136,11 +136,12 @@ static NSString *const MATCH = @"MATCH";
             cardView.color = card.color;
             cardView.number = card.number;
             [self.tap addTarget:cardView action:@selector(selectCard:)];
-            [cardViews addObject:cardView];
+            [self.cardViews addObject:cardView];
             [self.gridView addSubview:cardView];
             index++;
-            if (index >= self.cardGame.numberOfDealtCards) return cardViews;  //return if the card views have been filled
+            if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
         }
+        if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
     }
 }
 
