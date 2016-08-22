@@ -99,7 +99,7 @@ static NSString *const MATCH = @"MATCH";
     for (int i = 0; i < ADD_CARDS; i++) {
         [self.cardGame drawNewCard];
     }
-    
+    [self updateUI];
 }
 
 - (IBAction)selectCardsToMatch:(UITapGestureRecognizer *)sender {
