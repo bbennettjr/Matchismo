@@ -94,7 +94,7 @@ static NSString *const MATCH = @"MATCH";
 }
 
 #pragma mark - User Interface Updating
--(IBAction)addThreeCardsButton:(id)sender{
+-(IBAction)addThreeCardsButton:(UIButton *)sender{
 
 }
 
