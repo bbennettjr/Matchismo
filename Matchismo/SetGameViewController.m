@@ -114,12 +114,29 @@ static NSString *const MATCH = @"MATCH";
 
 -(void)updateUI{
     [super updateUI];
-    //get the card for correct cardview object
-
+    [self updateGrid];
         //parse out actions depending on current game status
-
     if ([self.cardGame.status isEqualToString:MATCH]) { [self animateMatch]; }
     if ([self.cardGame.status isEqualToString:NO_ACTION]) { [self resetCards]; }
+}
+
+    //Update the grid values to accomodate more cards being dealt onto the screen and updating the viewing of the cards as they populate
+-(void)updateGrid{
+    for (NSUInteger row = 0; row < self.grid.rowCount; row++) {
+        for (NSUInteger column = 0; column < self.grid.columnCount; column++) {
+            cardView = [[SetCardView alloc]initWithFrame:[self.grid frameOfCellAtRow:row inColumn:column]];
+            card = (SetCard *)[self.cardGame cardAtIndex:index];
+            cardView.shape = card.shape;
+            cardView.shade = card.shade;
+            cardView.color = card.color;
+            cardView.number = card.number;
+            [self.tap addTarget:cardView action:@selector(selectCard:)];
+            [cardViews addObject:cardView];
+            [self.gridView addSubview:cardView];
+            index++;
+            if (index >= self.cardGame.numberOfDealtCards) return cardViews;  //return if the card views have been filled
+        }
+    }
 }
 
 //when a match occurs in game, animate the cards
