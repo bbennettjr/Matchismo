@@ -94,8 +94,12 @@ static NSString *const MATCH = @"MATCH";
 }
 
 #pragma mark - User Interface Updating
+#define ADD_CARDS 3
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
-
+    for (int i = 0; i < ADD_CARDS; i++) {
+        [self.cardGame drawNewCard];
+    }
+    
 }
 
 - (IBAction)selectCardsToMatch:(UITapGestureRecognizer *)sender {

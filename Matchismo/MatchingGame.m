@@ -121,12 +121,13 @@ static NSString *const MATCH = @"MATCH";
 }
 
 #pragma mark - Public API
-    //Draw a new card from the deck
+    //Draw a new card from the deck, if the deck size is zero set our deckIsEmpty flag
 -(void)drawNewCard{
     if ([self.deck deckSize] > 0) {
         Card *card = [self.deck drawRandomCard];
         [self.cards addObject:card];
     }
+    if ([self.deck deckSize] == 0) { self.deckIsEmpty = YES; }
 }
 
 //return a card at the specified index using fast enum

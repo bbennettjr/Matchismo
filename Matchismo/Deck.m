@@ -44,7 +44,7 @@
 
 //return the size of the deck
 -(NSUInteger)deckSize{
-    return [self.cards count]-1;
+    return [self.cards count];
 }
 
 #pragma mark - Class Methods

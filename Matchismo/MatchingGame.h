@@ -11,6 +11,7 @@
 
 @interface MatchingGame : NSObject
 @property (nonatomic) NSInteger score;
+@property (nonatomic) BOOL deckIsEmpty;
 @property (nonatomic, strong) NSMutableArray *cards; //of cards
 @property (nonatomic, strong) NSMutableArray *chosenCards;
 @property (nonatomic) NSString *descr;
