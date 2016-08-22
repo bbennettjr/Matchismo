@@ -12,5 +12,6 @@
 #import "SetMatchingGame.h"
 
 @interface SetGameViewController : GameViewController
+@property (weak, nonatomic) IBOutlet UIButton *addThreeCardsButton;
 
 @end
