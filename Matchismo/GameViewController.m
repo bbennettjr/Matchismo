@@ -66,7 +66,7 @@
 
 //returns the number of cards dealt in the game
 -(NSUInteger)numberOfDealtCards{
-    return self.grid.exactNumberOfCells;
+    return self.cardGame.numberOfDealtCards;
 }
 
 //array holding the custom views of each card, returns nil for subclassing
