@@ -35,6 +35,9 @@ static NSString *const MATCH = @"MATCH";
 -(void)setScore:(NSInteger)score{
     _score = score;
 }
+-(NSUInteger)numberOfDealtCards{
+    return [self.cards count];
+}
 -(NSString *)descr{
     return (!_descr) ? _descr = [[NSString alloc]initWithFormat:@"Find a Set!"] : _descr;
 }
