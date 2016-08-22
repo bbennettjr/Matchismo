@@ -122,6 +122,11 @@ static NSString *const MATCH = @"MATCH";
 
     //Update the grid values to accomodate more cards being dealt onto the screen and updating the viewing of the cards as they populate
 -(void)updateGrid{
+        //code to create the setcard views
+    SetCardView *cardView;
+    SetCard *card;
+        //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
+    int index = 0;
     for (NSUInteger row = 0; row < self.grid.rowCount; row++) {
         for (NSUInteger column = 0; column < self.grid.columnCount; column++) {
             cardView = [[SetCardView alloc]initWithFrame:[self.grid frameOfCellAtRow:row inColumn:column]];
