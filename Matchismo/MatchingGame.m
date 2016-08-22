@@ -100,6 +100,7 @@ static NSString *const MATCH = @"MATCH";
 //designated initializer
 -(instancetype)initWithDeck:(Deck *)deck
               andCardNumber:(NSUInteger)numberOfCards{
+    [self setDeck:deck];
     self = [super init];
     if (self) {
         for (NSUInteger index = 0; index < numberOfCards; index++) {
@@ -122,7 +123,7 @@ static NSString *const MATCH = @"MATCH";
 #pragma mark - Public API
     //Draw a new card from the deck
 -(void)drawNewCard{
-
+    
 }
 
 //return a card at the specified index using fast enum
