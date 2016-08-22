@@ -123,7 +123,10 @@ static NSString *const MATCH = @"MATCH";
 #pragma mark - Public API
     //Draw a new card from the deck
 -(void)drawNewCard{
-    
+    if ([self.deck deckSize] > 0) {
+        Card *card = [self.deck drawRandomCard];
+        [self.cards addObject:card];
+    }
 }
 
 //return a card at the specified index using fast enum
