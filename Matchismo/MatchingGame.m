@@ -13,6 +13,7 @@
 
 @interface MatchingGame ()
 @property (nonatomic, strong) Settings *settings;
+@property (nonatomic, strong) Deck *deck;
 @end
 
 @implementation MatchingGame
@@ -37,6 +38,14 @@ static NSString *const MATCH = @"MATCH";
 }
 -(NSUInteger)numberOfDealtCards{
     return [self.cards count];
+}
+    //Setter and getter for deck
+@synthesize deck = _deck;
+-(Deck *)deck{
+    return _deck;
+}
+-(void)setDeck:(Deck *)deck{
+    _deck = deck;
 }
 -(NSString *)descr{
     return (!_descr) ? _descr = [[NSString alloc]initWithFormat:@"Find a Set!"] : _descr;
@@ -111,6 +120,11 @@ static NSString *const MATCH = @"MATCH";
 }
 
 #pragma mark - Public API
+    //Draw a new card from the deck
+-(void)drawNewCard{
+
+}
+
 //return a card at the specified index using fast enum
 -(Card *)cardAtIndex:(NSUInteger)index{
     return (index < [self.cards count]) ? [self.cards objectAtIndex:index] : nil;

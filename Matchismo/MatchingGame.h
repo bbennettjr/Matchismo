@@ -28,6 +28,7 @@
 -(instancetype)initWithDeck:(Deck *)deck
               andCardNumber:(NSUInteger)numberOfCards;
 -(instancetype)initWithDeck:(Deck *)deck;
+-(void)drawNewCard;
 -(Card *)cardAtIndex:(NSUInteger)index;
 -(void)chooseCardAtIndex:(NSUInteger)index;
 -(void)descriptionOfFlip;
