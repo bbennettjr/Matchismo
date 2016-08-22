@@ -241,10 +241,11 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
 #define SCALE_CARDS_DOWN 0.75
 #define SCALE_CARDS_NORMAL 1.0
 -(void)selectCard:(UITapGestureRecognizer *)tap{
-    //if the tap is located in the view of this card, do the card selection animation.  The animation is to rotate 180 degrees clockwise and scale down to signify selection.  Then scale back up and un-rotate back to normal to signify not being selected.  
+    //if the tap is located in the view of this card, do the card selection animation.  The animation is to rotate 180 degrees clockwise and scale down to signify selection.  Then scale back up and un-rotate back to normal to signify not being selected.
+
     if (CGRectContainsPoint(self.bounds, [tap locationInView:self])) {
         if (!self.selected) {
-            [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
+                [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
                 self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(M_PI), CGAffineTransformMakeScale(SCALE_CARDS_DOWN, SCALE_CARDS_DOWN));
             } completion:nil];
         } else {
@@ -258,7 +259,9 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
 
     //Remove the cards from the view by translating within the context reference
 -(void)removeMatchedCard:(CGRect)windowBounds{
-    CGContextTranslateCTM(UIGraphicsGetCurrentContext(), -1000, -1000);
+    [UIView animateWithDuration:0.3 animations:^{
+        self.transform = CGAffineTransformMakeTranslation(windowBounds.size.width, windowBounds.size.height);
+    }];
 }
 
 @end
