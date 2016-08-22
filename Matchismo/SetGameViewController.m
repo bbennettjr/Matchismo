@@ -94,6 +94,10 @@ static NSString *const MATCH = @"MATCH";
 }
 
 #pragma mark - User Interface Updating
+-(IBAction)addThreeCardsButton:(id)sender{
+
+}
+
 - (IBAction)selectCardsToMatch:(UITapGestureRecognizer *)sender {
     //evaluate each touch event to see which card was chosen, then send that card to the model
     for (SetCardView *cardView in self.cardViews) {
