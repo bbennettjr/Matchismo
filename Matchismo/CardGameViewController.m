@@ -25,7 +25,10 @@
     //initialize the grid statistics
     self.numberOfStartingCards = 35;
     self.maxCardSize = CGSizeMake(MAX_CARD_WIDTH, MAX_CARD_HEIGHT);
-
+    self.grid.maxCellWidth = self.maxCardSize.width;
+    self.grid.maxCellHeight = self.maxCardSize.height;
+    self.grid.minCellWidth = self.minCardSize.width;
+    self.grid.minCellHeight = self.minCardSize.height;
     //initialize the cardViews array
     [self cardViews];
 
