@@ -53,7 +53,7 @@
 -(Grid *)grid{
     if (!_grid) {
         _grid = [[Grid alloc]init];
-        _grid.minimumNumberOfCells = self.numberOfDealtCards;
+        _grid.minimumNumberOfCells = self.numberOfStartingCards;
         _grid.cellAspectRatio = self.maxCardSize.width/self.maxCardSize.height;
         _grid.size = self.gridView.frame.size;
     }
