@@ -19,7 +19,7 @@
 static NSString *const NO_ACTION = @"NO ACITON";
 static NSString *const MID_TURN = @"MID TURN";
 static NSString *const MATCH = @"MATCH";
-#define MAX_CARD_WIDTH 1000.0
+#define MAX_CARD_WIDTH 750.0
 #define MAX_CARD_HEIGHT 1000.0
 #define MIN_CARD_WIDTH 180.0
 #define MIN_CARD_HEIGHT 180.0
