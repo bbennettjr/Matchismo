@@ -91,6 +91,8 @@
 //reset the game
 - (IBAction)dealNewGame:(UIButton *)sender {
     self.results = nil;
+    self.grid = nil;
+    self.cardGame = nil;
     [self resetCardViews];
     [self updateUI];
 }
