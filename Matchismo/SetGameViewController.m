@@ -114,7 +114,7 @@ static NSString *const MATCH = @"MATCH";
 
 -(void)updateUI{
     [super updateUI];
-    [self updateGrid];
+        // [self updateGrid];
         //parse out actions depending on current game status
     if ([self.cardGame.status isEqualToString:MATCH]) { [self animateMatch]; }
     if ([self.cardGame.status isEqualToString:NO_ACTION]) { [self resetCards]; }
