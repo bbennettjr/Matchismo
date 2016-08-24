@@ -23,11 +23,12 @@ static NSString *const MATCH = @"MATCH";
 #define MAX_CARD_HEIGHT 1000.0
 #define MIN_CARD_WIDTH 75.0
 #define MIN_CARD_HEIGHT 100.0
+#define NUMBER_OF_STARTING_CARDS 15
 
 #pragma mark - View Controller life cycle
 -(void)viewDidLoad{
     //set up the number of cards to play with and update the UI
-    self.numberOfStartingCards = 12;
+    self.numberOfStartingCards = NUMBER_OF_STARTING_CARDS;
     self.cardGame.numberOfDealtCards = self.numberOfStartingCards;
     self.maxCardSize = CGSizeMake(MAX_CARD_WIDTH, MAX_CARD_HEIGHT);
     self.minCardSize = CGSizeMake(MIN_CARD_WIDTH, MIN_CARD_HEIGHT);
@@ -98,9 +99,7 @@ static NSString *const MATCH = @"MATCH";
 #pragma mark - User Interface Updating
 #define ADD_CARDS 3
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
-    for (int i = 0; i >= ADD_CARDS; i++) {
-        [self.cardGame drawNewCard];
-    }
+    self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + ADD_CARDS;
     [self updateUI];
 }
 
@@ -126,7 +125,29 @@ static NSString *const MATCH = @"MATCH";
 -(void)updateGrid{
     if (self.grid.minimumNumberOfCells != self.cardGame.numberOfDealtCards) {
         self.grid.minimumNumberOfCells = self.cardGame.numberOfDealtCards;
+        self.grid.inputsAreValid;
+        SetCardView *cardView;
+        SetCard *card;
+            //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
+        int index = 0;
+        for (NSUInteger row = 0; row < self.grid.rowCount; row++) {
+            for (NSUInteger column = 0; column < self.grid.columnCount; column++) {
+                cardView = [[SetCardView alloc]initWithFrame:[self.grid frameOfCellAtRow:row inColumn:column]];
+                card = (SetCard *)[self.cardGame cardAtIndex:index];
+                cardView.shape = card.shape;
+                cardView.shade = card.shade;
+                cardView.color = card.color;
+                cardView.number = card.number;
+                [self.tap addTarget:cardView action:@selector(selectCard:)];
+                [self.cardViews addObject:cardView];
+                [self.gridView addSubview:cardView];
+                index++;
+                if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
+            }
+            if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
+        }
 
+/**
         if (self.grid.inputsAreValid) {
                 //code to create the setcard views
             SetCardView *cardView;
@@ -154,6 +175,7 @@ static NSString *const MATCH = @"MATCH";
             label.text = @"Inputs are invalid";
             [self.gridView addSubview:label];
         }
+        **/
     }
 }
 
