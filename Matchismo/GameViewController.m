@@ -90,6 +90,7 @@
     self.grid = nil;
     self.cardGame = nil;
     [self resetCardViews];
+    self.cardGame.numberOfDealtCards = self.numberOfStartingCards;
     [self updateUI];
 }
 
