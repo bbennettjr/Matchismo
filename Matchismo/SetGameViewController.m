@@ -58,7 +58,7 @@ static NSString *const MATCH = @"MATCH";
 //getter for cardViews array
 -(NSMutableArray *)cardViews{
     NSMutableArray *cardViews = [super cardViews];
-
+/**
     //if there are no cards in the array initialize all the card views
     if (![cardViews count]) {
         //code to create the setcard views
@@ -90,6 +90,7 @@ static NSString *const MATCH = @"MATCH";
             [self.gridView addSubview:label];
         }
     }
+ **/
     return cardViews;
 }
 
