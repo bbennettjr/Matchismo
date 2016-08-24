@@ -99,7 +99,9 @@ static NSString *const MATCH = @"MATCH";
 #pragma mark - User Interface Updating
 #define ADD_CARDS 3
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
-    self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + ADD_CARDS;
+    for (int i=1; i <= ADD_CARDS; i++) {
+        if (self.cardGame.numberOfDealtCards < [self.cardGame.cards count]) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + i; }
+    }
     [self updateUI];
 }
 
