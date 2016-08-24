@@ -214,7 +214,7 @@
     if (CGRectContainsPoint(self.bounds, [swipe locationInView:self])) {
         CGRect bounds = CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, self.bounds.size.height);
         CGPoint center = CGPointMake(self.center.x, self.center.y);
-        CGSize sideView = CGSizeMake(10.0, self.bounds.size.height);
+        CGSize sideView = CGSizeMake(5.0, self.bounds.size.height);
 
         //animation to resize the card appearing as though its being flipped.
         [UIView animateWithDuration:0.15 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
