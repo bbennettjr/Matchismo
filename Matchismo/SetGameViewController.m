@@ -123,8 +123,7 @@ static NSString *const MATCH = @"MATCH";
 
     //Update the grid values to accomodate more cards being dealt onto the screen and updating the viewing of the cards as they populate
 -(void)updateGrid{
-    self.grid.minimumNumberOfCells = self.cardGame.numberOfDealtCards;
-    if (self.grid.inputsAreValid) {
+    if (self.grid.minimumNumberOfCells != self.cardGame.numberOfDealtCards) {
 
         //code to create the setcard views
         SetCardView *cardView;
