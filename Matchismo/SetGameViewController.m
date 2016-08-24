@@ -60,7 +60,7 @@ static NSString *const MATCH = @"MATCH";
 //getter for cardViews array
 -(NSMutableArray *)cardViews{
     NSMutableArray *cardViews = [super cardViews];
-/**
+
     //if there are no cards in the array initialize all the card views
     if (![cardViews count]) {
         //code to create the setcard views
@@ -92,7 +92,7 @@ static NSString *const MATCH = @"MATCH";
             [self.gridView addSubview:label];
         }
     }
- **/
+
     return cardViews;
 }
 
@@ -125,7 +125,8 @@ static NSString *const MATCH = @"MATCH";
 -(void)updateGrid{
     if (self.grid.minimumNumberOfCells != self.cardGame.numberOfDealtCards) {
         self.grid.minimumNumberOfCells = self.cardGame.numberOfDealtCards;
-        self.grid.inputsAreValid;
+        if (self.grid.inputsAreValid) {}; //doing this to validate and change the grid, not very tactfully
+        [self.cardViews makeObjectsPerformSelector:(@selector(removeFromSuperview))];
         SetCardView *cardView;
         SetCard *card;
             //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
