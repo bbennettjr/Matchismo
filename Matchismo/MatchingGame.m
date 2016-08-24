@@ -36,8 +36,8 @@ static NSString *const MATCH = @"MATCH";
 -(void)setScore:(NSInteger)score{
     _score = score;
 }
--(NSUInteger)numberOfDealtCards{
-    return [self.cards count];
+-(void)setNumberOfDealtCards:(NSUInteger)numberOfDealtCards{
+    _numberOfDealtCards = numberOfDealtCards;
 }
     //Setter and getter for deck
 @synthesize deck = _deck;
