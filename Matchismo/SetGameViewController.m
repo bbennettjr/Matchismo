@@ -125,32 +125,34 @@ static NSString *const MATCH = @"MATCH";
 -(void)updateGrid{
     if (self.grid.minimumNumberOfCells != self.cardGame.numberOfDealtCards) {
         self.grid.minimumNumberOfCells = self.cardGame.numberOfDealtCards;
-        
-        //code to create the setcard views
-        SetCardView *cardView;
-        SetCard *card;
-            //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
-        int index = 0;
-        for (NSUInteger row = 0; row < self.grid.rowCount; row++) {
-            for (NSUInteger column = 0; column < self.grid.columnCount; column++) {
-                cardView = [[SetCardView alloc]initWithFrame:[self.grid frameOfCellAtRow:row inColumn:column]];
-                card = (SetCard *)[self.cardGame cardAtIndex:index];
-                cardView.shape = card.shape;
-                cardView.shade = card.shade;
-                cardView.color = card.color;
-                cardView.number = card.number;
-                [self.tap addTarget:cardView action:@selector(selectCard:)];
-                [self.cardViews addObject:cardView];
-                [self.gridView addSubview:cardView];
-                index++;
+
+        if (self.grid.inputsAreValid) {
+                //code to create the setcard views
+            SetCardView *cardView;
+            SetCard *card;
+                //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
+            int index = 0;
+            for (NSUInteger row = 0; row < self.grid.rowCount; row++) {
+                for (NSUInteger column = 0; column < self.grid.columnCount; column++) {
+                    cardView = [[SetCardView alloc]initWithFrame:[self.grid frameOfCellAtRow:row inColumn:column]];
+                    card = (SetCard *)[self.cardGame cardAtIndex:index];
+                    cardView.shape = card.shape;
+                    cardView.shade = card.shade;
+                    cardView.color = card.color;
+                    cardView.number = card.number;
+                    [self.tap addTarget:cardView action:@selector(selectCard:)];
+                    [self.cardViews addObject:cardView];
+                    [self.gridView addSubview:cardView];
+                    index++;
+                    if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
+                }
                 if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
             }
-            if (index >= self.cardGame.numberOfDealtCards) break;  //return if the card views have been filled
+        } else {
+            UILabel *label = [[UILabel alloc]init];
+            label.text = @"Inputs are invalid";
+            [self.gridView addSubview:label];
         }
-    } else {
-        UILabel *label = [[UILabel alloc]init];
-        label.text = @"Inputs are invalid";
-        [self.gridView addSubview:label];
     }
 }
 
