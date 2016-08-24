@@ -98,9 +98,24 @@ static NSString *const MATCH = @"MATCH";
 
 #pragma mark - User Interface Updating
 #define ADD_CARDS 3
+#define WARNING_X_POS 10
+#define WARNING_Y_POS 10
+#define WARNING_WIDTH 100
+#define WARNING_HEIGHT 25
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
     for (int i=1; i <= ADD_CARDS; i++) {
         if (self.cardGame.numberOfDealtCards < [self.cardGame.cards count]) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + i; }
+        if (self.cardGame.numberOfDealtCards >= [self.cardGame.cards count]) {
+            UILabel *warning = [[UILabel alloc] initWithFrame:CGRectMake(WARNING_X_POS, WARNING_Y_POS, WARNING_WIDTH, WARNING_HEIGHT)];
+            warning.text = @"No more cards in the deck";
+            warning.textColor = [UIColor whiteColor];
+            [self.view.window addSubview:warning];
+            [UIView animateWithDuration:0.5 animations:^{
+                warning.alpha = 0;
+            }completion:^(BOOL finished){
+                [warning removeFromSuperview];
+            }];
+        }
     }
     [self updateUI];
 }
