@@ -28,6 +28,7 @@ static NSString *const MATCH = @"MATCH";
 -(void)viewDidLoad{
     //set up the number of cards to play with and update the UI
     self.numberOfStartingCards = 12;
+    self.cardGame.numberOfDealtCards = self.numberOfStartingCards;
     self.maxCardSize = CGSizeMake(MAX_CARD_WIDTH, MAX_CARD_HEIGHT);
     self.minCardSize = CGSizeMake(MIN_CARD_WIDTH, MIN_CARD_HEIGHT);
 
