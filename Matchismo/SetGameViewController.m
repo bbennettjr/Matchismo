@@ -23,7 +23,7 @@ static NSString *const MATCH = @"MATCH";
 #define MAX_CARD_HEIGHT 1000.0
 #define MIN_CARD_WIDTH 75.0
 #define MIN_CARD_HEIGHT 100.0
-#define NUMBER_OF_STARTING_CARDS 15
+#define NUMBER_OF_STARTING_CARDS 12
 
 #pragma mark - View Controller life cycle
 -(void)viewDidLoad{
