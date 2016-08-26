@@ -245,15 +245,10 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
 
     if (CGRectContainsPoint(self.bounds, [tap locationInView:self])) {
         self.selected = !self.selected;
-        /** Testing how to animate the match **/
-        __weak SetCardView *weakself = self;
-        /** Testing how to animate the match **/
         if (self.selected) {
                 [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
                 self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(M_PI), CGAffineTransformMakeScale(SCALE_CARDS_DOWN, SCALE_CARDS_DOWN));
-                } completion:^(BOOL finished){
-                    [weakself removeMatchedCard];
-                }];
+                } completion:NULL];
         } else {
             [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
                 self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(0.000001), CGAffineTransformMakeScale(SCALE_CARDS_NORMAL, SCALE_CARDS_NORMAL));
@@ -264,7 +259,7 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
 
     //Remove the cards from the view by translating within the context reference
 -(void)removeMatchedCard{
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:5.3 animations:^{
         self.transform = CGAffineTransformMakeTranslation(-1000, -1000);
     }];
 }
