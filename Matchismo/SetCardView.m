@@ -258,7 +258,7 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
 }
 
     //Remove the cards from the view by translating within the context reference
--(void)removeMatchedCard:(CGRect)windowBounds{
+-(void)removeMatchedCard{
     [UIView animateWithDuration:0.3 animations:^{
         self.transform = CGAffineTransformMakeTranslation(-1000, -1000);
     }];

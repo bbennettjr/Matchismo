@@ -24,6 +24,6 @@
 
 //scale the tapped card
 -(void)selectCard:(UITapGestureRecognizer *)tap;
--(void)removeMatchedCard:(CGRect)windowBounds;
+-(void)removeMatchedCard;
 
 @end
