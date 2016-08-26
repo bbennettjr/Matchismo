@@ -12,6 +12,7 @@
 @interface SetGameViewController ()
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tap;
 @property (strong, nonatomic) SetMatchingGame *cardGame;
+@property (nonatomic) BOOL removeMatchingCards;
 @end
 
 @implementation SetGameViewController
@@ -32,6 +33,7 @@ static NSString *const MATCH = @"MATCH";
     self.cardGame.numberOfDealtCards = self.numberOfStartingCards;
     self.maxCardSize = CGSizeMake(MAX_CARD_WIDTH, MAX_CARD_HEIGHT);
     self.minCardSize = CGSizeMake(MIN_CARD_WIDTH, MIN_CARD_HEIGHT);
+    self.removeMatchingCards = YES;
 
     //initalize the cardviews array
     [self cardViews];

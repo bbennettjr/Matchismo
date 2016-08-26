@@ -9,5 +9,4 @@
 #import "MatchingGame.h"
 
 @interface SetMatchingGame : MatchingGame
-
 @end
