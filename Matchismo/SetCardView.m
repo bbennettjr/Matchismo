@@ -244,7 +244,8 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
     //if the tap is located in the view of this card, do the card selection animation.  The animation is to rotate 180 degrees clockwise and scale down to signify selection.  Then scale back up and un-rotate back to normal to signify not being selected.
 
     if (CGRectContainsPoint(self.bounds, [tap locationInView:self])) {
-        if (!self.selected) {
+        self.selected = !self.selected;
+        if (self.selected) {
                 [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
                 self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(M_PI), CGAffineTransformMakeScale(SCALE_CARDS_DOWN, SCALE_CARDS_DOWN));
             } completion:nil];
@@ -253,7 +254,6 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
                 self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(0.000001), CGAffineTransformMakeScale(SCALE_CARDS_NORMAL, SCALE_CARDS_NORMAL));
             } completion:nil];
         }
-        self.selected = !self.selected;
     }
 }
 
