@@ -178,7 +178,7 @@ static NSString *const MATCH = @"MATCH";
         //__weak SetGameViewController *weakSelf = self;
     for (SetCardView *cardView in self.cardViews) {
         if (cardView.selected) {
-            [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionCurveEaseIn animations:^{
                 //not working
                 //cardView.transform = CGAffineTransformMakeTranslation(self.view.bounds.origin.x, self.view.bounds.origin.y);
                 //cardView.transform = CGAffineTransformMakeTranslation(0, -1000);
@@ -187,6 +187,7 @@ static NSString *const MATCH = @"MATCH";
                     //[cardView removeMatchedCard:self.view.window.bounds];
                     //Add cardView to the clean up array to later remove these from self.cardViews
                 [cardViewCleanUp addObject:cardView];
+                cardView.center = CGPointMake(0, 0); //THIS WOOOOOOOOOOOOOOOOORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     //[cardView removeFromSuperview];
             } completion:nil];
         }
