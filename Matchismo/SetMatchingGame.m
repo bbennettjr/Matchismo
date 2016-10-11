@@ -37,6 +37,7 @@ static NSString *const MATCH = @"MATCH";
             if (initialMatchScore) {
                 self.score += self.matchBonus * initialMatchScore;
                 self.match = YES;
+                return;
             }
 
                 //No Match.  Subtract the penalty.
