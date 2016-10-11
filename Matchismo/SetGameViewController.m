@@ -103,7 +103,7 @@ static NSString *const MATCH = @"MATCH";
 #define ADD_CARDS 3
 #define WARNING_X_POS 10
 #define WARNING_Y_POS 10
-#define WARNING_WIDTH 200
+#define WARNING_WIDTH 400
 #define WARNING_HEIGHT 25
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
         //If there are no more cards left in the deck display a message that fades out saying there are no more cards
@@ -120,7 +120,7 @@ static NSString *const MATCH = @"MATCH";
         return;
     }
         //If there is room for all of the ADD_CARDS to be drawn, draw them
-    if (self.cardGame.numberOfDealtCards < [self.cardGame.cards count] - ADD_CARDS) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + ADD_CARDS; }
+    if (self.cardGame.numberOfDealtCards <= [self.cardGame.cards count] - ADD_CARDS) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + ADD_CARDS; }
         //If there is room for some cards, but less than ADD_CARDS, add the remaining cards
     if (self.cardGame.numberOfDealtCards > [self.cardGame.cards count] - ADD_CARDS && self.cardGame.numberOfDealtCards < [self.cardGame.cards count]) { self.cardGame.numberOfDealtCards += ([self.cardGame.cards count] - self.cardGame.numberOfDealtCards); }
 
