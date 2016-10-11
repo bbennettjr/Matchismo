@@ -57,6 +57,7 @@ static NSString *const MATCH = @"MATCH";
         for (Card *card in self.chosenCards) {
             card.isMatched = YES;
             card.isChosen = YES;
+            [self removeMatchedCard];
             self.status = MATCH;
         }
         [self.chosenCards removeAllObjects];
@@ -128,6 +129,13 @@ static NSString *const MATCH = @"MATCH";
         [self.cards addObject:card];
     }
     if ([self.deck deckSize] == 0) { self.deckIsEmpty = YES; }
+}
+
+    //Remove a card that has been matched and is no longer actionable on the playing field
+-(void)removeMatchedCard{
+    for (Card *card in self.chosenCards) {
+        if ([card isKindOfClass:[Card class]]) {[self.cards removeObject:card];}
+    }
 }
 
 //return a card at the specified index using fast enum
