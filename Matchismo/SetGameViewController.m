@@ -127,7 +127,7 @@ static NSString *const MATCH = @"MATCH";
     [self updateUI];
 }
 
-    //MAJOR PROBLEMS HERE!  TAP GESTER HIT ALL CARDVIEWS AFTER ADDING NEW CARDS TO THE SCREEN
+    //MAJOR PROBLEMS HERE!  TAP GESTER HIT ALL CARDVIEWS AFTER ADDING NEW CARDS TO THE SCREEN.  ONE SOLUTION IS TO ONLY USE THE TAP GESTURE HERE AND NOT IN THE SETCARDVIEW
 - (IBAction)selectCardsToMatch:(UITapGestureRecognizer *)sender {
     //evaluate each touch event to see which card was chosen, then send that card to the model
     for (SetCardView *cardView in self.cardViews) {
