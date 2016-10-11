@@ -77,6 +77,6 @@ static NSString *const MATCH = @"MATCH";
     } else {
         //no cards chosen, descr says choose a set
     }
-    NSLog(self.descr);
+    NSLog(@"%@", self.descr);
 }
 @end
