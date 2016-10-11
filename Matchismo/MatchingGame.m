@@ -57,7 +57,7 @@ static NSString *const MATCH = @"MATCH";
         for (Card *card in self.chosenCards) {
             card.isMatched = YES;
             card.isChosen = YES;
-            [self removeMatchedCard];
+            [self removeMatchedCard]; //Remove the matched cards here
             self.status = MATCH;
         }
         [self.chosenCards removeAllObjects];
