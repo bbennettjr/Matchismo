@@ -61,7 +61,7 @@ static NSString *const MATCH = @"MATCH";
             self.status = MATCH;
         }
         [self.chosenCards removeAllObjects];
-    } else if (!match) { //Code for match = NO and removing all cards
+    } else if (!match && [self.chosenCards count] == self.numberOfMatchingCards) { //Code for match = NO and removing all cards
         for (Card *card in self.chosenCards) {
             card.isMatched = NO;
             card.isChosen = NO;

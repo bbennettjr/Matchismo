@@ -103,13 +103,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/SetGameViewController.m"
-            timestampString = "497904673.094939"
+            filePath = "Matchismo/MatchingGame.m"
+            timestampString = "497907901.591932"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-addThreeCardsButton:"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-setMatch:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Matchismo/SetGameViewController.m"
+            timestampString = "497911891.390361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-selectCardsToMatch:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
