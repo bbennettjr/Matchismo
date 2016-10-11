@@ -78,7 +78,7 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "-drawFace"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,7 +94,7 @@
             startingLineNumber = "176"
             endingLineNumber = "176"
             landmarkName = "-animateMatch"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
