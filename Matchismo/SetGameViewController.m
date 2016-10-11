@@ -106,20 +106,24 @@ static NSString *const MATCH = @"MATCH";
 #define WARNING_WIDTH 200
 #define WARNING_HEIGHT 25
 -(IBAction)addThreeCardsButton:(UIButton *)sender{
-    for (int i = 1; i <= ADD_CARDS; i++) {
-        if (self.cardGame.numberOfDealtCards < [self.cardGame.cards count]) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + i; }
-        if (self.cardGame.numberOfDealtCards >= [self.cardGame.cards count]) {
-            UILabel *warning = [[UILabel alloc] initWithFrame:CGRectMake(WARNING_X_POS, WARNING_Y_POS, WARNING_WIDTH, WARNING_HEIGHT)];
-            warning.text = @"No more cards in the deck";
-            warning.textColor = [UIColor whiteColor];
-            [self.view.window addSubview:warning];
-            [UIView animateWithDuration:1.5 animations:^{
-                warning.alpha = 0;
-            }completion:^(BOOL finished){
-                [warning removeFromSuperview];
-            }];
-        }
+        //If there are no more cards left in the deck display a message that fades out saying there are no more cards
+    if (self.cardGame.numberOfDealtCards >= [self.cardGame.cards count]) {
+        UILabel *warning = [[UILabel alloc] initWithFrame:CGRectMake(WARNING_X_POS, WARNING_Y_POS, WARNING_WIDTH, WARNING_HEIGHT)];
+        warning.text = @"No more cards in the deck";
+        warning.textColor = [UIColor whiteColor];
+        [self.view.window addSubview:warning];
+        [UIView animateWithDuration:1.5 animations:^{
+            warning.alpha = 0;
+        }completion:^(BOOL finished){
+            [warning removeFromSuperview];
+        }];
+        return;
     }
+        //If there is room for all of the ADD_CARDS to be drawn, draw them
+    if (self.cardGame.numberOfDealtCards < [self.cardGame.cards count] - ADD_CARDS) { self.cardGame.numberOfDealtCards = self.cardGame.numberOfDealtCards + ADD_CARDS; }
+        //If there is room for some cards, but less than ADD_CARDS, add the remaining cards
+    if (self.cardGame.numberOfDealtCards > [self.cardGame.cards count] - ADD_CARDS && self.cardGame.numberOfDealtCards < [self.cardGame.cards count]) { self.cardGame.numberOfDealtCards += ([self.cardGame.cards count] - self.cardGame.numberOfDealtCards); }
+
     [self updateUI];
 }
 
