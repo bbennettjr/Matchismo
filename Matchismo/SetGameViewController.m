@@ -203,7 +203,7 @@ static NSString *const MATCH = @"MATCH";
 -(void)resetCards{
         //this code will call a method within SetCardView to toggle selected state
     for (SetCardView *cardView in self.cardViews) {
-        if (cardView.selected) { cardView performSelector:@selector(deselectCard); }
+        if (cardView.selected) { [cardView performSelector:@selector(deselectCards)]; }
     }
 }
 @end
