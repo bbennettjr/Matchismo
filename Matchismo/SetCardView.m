@@ -257,6 +257,20 @@ static const CGFloat squigglyRightControlPointX = 5.0/8.0;
     }
 }
 
+    //Deselect any card that did not Match when a match case was triggered
+-(void)deselectCards{
+    self.selected = !self.selected;
+    if (self.selected) {
+        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
+            self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(M_PI), CGAffineTransformMakeScale(SCALE_CARDS_DOWN, SCALE_CARDS_DOWN));
+        } completion:NULL];
+    } else {
+        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseOut animations:^{
+            self.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(0.000001), CGAffineTransformMakeScale(SCALE_CARDS_NORMAL, SCALE_CARDS_NORMAL));
+        } completion:nil];
+    }
+}
+
     //Remove the cards from the view by translating within the context reference
 -(void)removeMatchedCard{
     [UIView animateWithDuration:5.3 animations:^{

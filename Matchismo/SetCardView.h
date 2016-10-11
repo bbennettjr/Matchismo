@@ -24,6 +24,7 @@
 
 //scale the tapped card
 -(void)selectCard:(UITapGestureRecognizer *)tap;
+-(void)deselectCards;
 -(void)removeMatchedCard;
 
 @end
