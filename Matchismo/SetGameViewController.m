@@ -127,6 +127,7 @@ static NSString *const MATCH = @"MATCH";
     [self updateUI];
 }
 
+    //MAJOR PROBLEMS HERE!  TAP GESTER HIT ALL CARDVIEWS AFTER ADDING NEW CARDS TO THE SCREEN
 - (IBAction)selectCardsToMatch:(UITapGestureRecognizer *)sender {
     //evaluate each touch event to see which card was chosen, then send that card to the model
     for (SetCardView *cardView in self.cardViews) {
@@ -151,6 +152,8 @@ static NSString *const MATCH = @"MATCH";
         self.grid.minimumNumberOfCells = self.cardGame.numberOfDealtCards;
         if (self.grid.inputsAreValid) {}; //doing this to validate and change the grid, not very tactfully
         [self.cardViews makeObjectsPerformSelector:(@selector(removeFromSuperview))];
+        [self.cardViews removeAllObjects];
+
         SetCardView *cardView;
         SetCard *card;
             //index = 0 here because this relates to the views on screen, not the remaining available deck in the cardGame.
