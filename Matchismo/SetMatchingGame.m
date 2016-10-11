@@ -68,14 +68,15 @@ static NSString *const MATCH = @"MATCH";
                 SetCard *newCard = (SetCard *)card;
                 //create a string of every card
                 if (![self.descr length]) {
-                    self.descr = [NSString stringWithFormat:@"%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
+                    self.descr = [NSString stringWithFormat:@"%@, %@, %@, %d", newCard.shape, newCard.shade, newCard.color, newCard.number];
                 } else {
-                    self.descr = [self.descr stringByAppendingFormat:@",%@%@%@%d", newCard.shape, newCard.shade, newCard.color, newCard.number];
+                    self.descr = [self.descr stringByAppendingFormat:@",%@, %@, %@, %d", newCard.shape, newCard.shade, newCard.color, newCard.number];
                 }
             }
         }
     } else {
         //no cards chosen, descr says choose a set
     }
+    NSLog(self.descr);
 }
 @end
