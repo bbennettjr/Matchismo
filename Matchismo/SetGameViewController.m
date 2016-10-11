@@ -202,5 +202,8 @@ static NSString *const MATCH = @"MATCH";
     //Reset cards calls all cardviews in the window and resets them to the default non-selected position
 -(void)resetCards{
         //this code will call a method within SetCardView to toggle selected state
+    for (SetCardView *cardView in self.cardViews) {
+        if (cardView.selected) { cardView performSelector:@selector(deselectCard:); }
+    }
 }
 @end
